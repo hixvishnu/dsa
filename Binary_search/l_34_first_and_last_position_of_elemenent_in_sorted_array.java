@@ -7,49 +7,85 @@ public class l_34_first_and_last_position_of_elemenent_in_sorted_array {
         int[] arr = searchRange(nums, target);
             System.out.println(Arrays.toString(arr));
     }
-    static int[] searchRange(int[] nums, int target) {
-        int[] res = {-1, -1}; 
-        int[] arr = nums;
-        int find = target;
-        res[0] = firstPosition(arr, find);
-        res[1] = lastPosition(arr, find);
+
+    // New approach --
+
+    static int[] searchRange(int[] nums, int target){
+        int[] res = {-1, -1};
+        res[0] = firstPosition(nums, target, true);
+        res[1] = firstPosition(nums, target, false);
         return res;
     }
-    static int firstPosition(int[] nums, int target){
+
+        static int firstPosition(int[] nums, int target, boolean findingFirstPosition){
         int start = 0;
         int end = nums.length - 1;
-        int firstPos = -1;
+        int ans = -1;
         while(start <= end)
         {
             int mid = start + (end - start) / 2;
-            if(target == nums[mid]){
-                firstPos = mid;
+            if(target < nums[mid]){
                 end = mid - 1;
-            } else if(target < nums[mid]){
-                end = mid - 1;
-            } else {
+            } else if (target > nums[mid]) {
                 start = mid + 1;
+            } else {
+                ans = mid;
+                if (findingFirstPosition) {
+                    end = mid -1;
+                } else {
+                    start = mid + 1;
+                }
             }
         }
-        return firstPos;
+        return ans;
     }
-    static int lastPosition(int[] nums, int target){
-        int start = 0;
-        int end = nums.length - 1;
-        int lastPos = -1;
-        while(start <= end)
-        {
-            int mid = start + (end - start) / 2;
-            if(target == nums[mid]){
-                lastPos = mid;
-                start = mid + 1;
-            } else if(target < nums[mid]){
-                end = mid - 1;
-            } else {
-                start = mid + 1;
-            }
-        }
-        return lastPos;
-    }
+
+
+    // Old approach --
+
+    // static int[] searchRange(int[] nums, int target) {
+    //     int[] res = {-1, -1}; 
+    //     int[] arr = nums;
+    //     int find = target;
+    //     res[0] = firstPosition(arr, find);
+    //     res[1] = lastPosition(arr, find);
+    //     return res;
+    // }
+    // static int firstPosition(int[] nums, int target){
+    //     int start = 0;
+    //     int end = nums.length - 1;
+    //     int firstPos = -1;
+    //     while(start <= end)
+    //     {
+    //         int mid = start + (end - start) / 2;
+    //         if(target == nums[mid]){
+    //             firstPos = mid;
+    //             end = mid - 1;
+    //         } else if(target < nums[mid]){
+    //             end = mid - 1;
+    //         } else {
+    //             start = mid + 1;
+    //         }
+    //     }
+    //     return firstPos;
+    // }
+    // static int lastPosition(int[] nums, int target){
+    //     int start = 0;
+    //     int end = nums.length - 1;
+    //     int lastPos = -1;
+    //     while(start <= end)
+    //     {
+    //         int mid = start + (end - start) / 2;
+    //         if(target == nums[mid]){
+    //             lastPos = mid;
+    //             start = mid + 1;
+    //         } else if(target < nums[mid]){
+    //             end = mid - 1;
+    //         } else {
+    //             start = mid + 1;
+    //         }
+    //     }
+    //     return lastPos;
+    // }
 }
         

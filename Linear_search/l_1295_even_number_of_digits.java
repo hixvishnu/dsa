@@ -1,3 +1,5 @@
+package Linear_search;
+
 /*
 https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
 -> https://leetcode.com/submissions/detail/1772380430/
