@@ -27,5 +27,4 @@ public class binary_search_algo {
         }
         return -1;
     }
-
 }
