@@ -1,7 +1,7 @@
 // Geek for geek question 
 // have some issue in the initial sol
 
-public class lc_infinite_array_question {
+public class gfg_infinite_array_question {
 
     public static void main(String[] args) {
         int[] arr = {2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 21, 24, 36, 63, 82};
