@@ -16,37 +16,20 @@ public class search_in_2D_array {
         
     }
 
-    static int[] searchInMatrix(int[][] Matrix, int target){
-	int row = 0;
-	int col = Matrix.length -1;
-	while(row < Matrix.length && col >=0){
-		if(Matrix[row][col] == target){
-			return new int[]{row,col};
-		}
-
-		if(Matrix[row][col] < target){
-			row ++;
-		} else {
-			col --;
-		}
-	}
-	return new int[]{-1,-1};
-}
-
-    // static int[] searchInMatrix(int[][] matrix, int target){
-    //     int row = 0;
-    //     int col = matrix.length - 1;
-    //     while (row < matrix.length && col >=0) {
-    //         if (matrix[row][col] == target) {
-    //             return new int[]{row, col};
-    //         }
-    //         if (matrix[row][col] < target) {
-    //             row ++;
-    //         } else{
-    //             col --;
-    //         }
-    //     }
-    //     return new int[]{-1,-1};
-    // }
+    static int[] searchInMatrix(int[][] matrix, int target){
+        int row = 0;
+        int col = matrix.length - 1;
+        while (row < matrix.length && col >=0) {
+            if (matrix[row][col] == target) {
+                return new int[]{row, col};
+            }
+            if (matrix[row][col] < target) {
+                row ++;
+            } else{
+                col --;
+            }
+        }
+        return new int[]{-1,-1};
+    }
 
 }
